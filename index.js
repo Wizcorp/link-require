@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // inspired by: https://gist.github.com/branneman/8048520
 
 const fs = require('fs')
