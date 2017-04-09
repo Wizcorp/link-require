@@ -1,0 +1,25 @@
+{
+  "name": "link-require",
+  "version": "0.0.1",
+  "description": "Symlink source folder(s) of your project to node_modules",
+  "main": "index.js",
+  "bin": {
+    "link-require": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Wizcorp/link-require.git"
+  },
+  "keywords": [
+    "require"
+  ],
+  "author": "Marc Trudel <mtrudel@wizcorp.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wizcorp/link-require/issues"
+  },
+  "homepage": "https://github.com/Wizcorp/link-require#readme"
+}
