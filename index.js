@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+'use strict'
+
 // inspired by: https://gist.github.com/branneman/8048520
 
 const fs = require('fs')
@@ -6,13 +9,9 @@ const path = require('path')
 const args = process.argv.slice(2)
 
 args.forEach(function (map) {
-  let [
-    source,
-    destination
-  ] = map.split(':');
-
-  source = path.resolve(source)
-  destination = path.join('node_modules', destination)
+  const data = map.split(':')
+  const source = path.resolve(data[0])
+  const destination = path.join('node_modules', data[1])
 
   function link() {
     fs.symlinkSync(source, destination)
