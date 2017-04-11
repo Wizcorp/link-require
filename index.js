@@ -14,7 +14,7 @@ args.forEach(function (map) {
   const destination = path.join('node_modules', data[1])
 
   function link() {
-    fs.symlinkSync(source, destination)
+    fs.symlinkSync(source, destination, 'junction')
   }
 
   try {
