@@ -1,6 +1,6 @@
 {
   "name": "link-require",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Symlink source folder(s) of your project to node_modules",
   "main": "index.js",
   "bin": {

@@ -8,7 +8,6 @@ const fs = require('fs')
 const path = require('path')
 const args = process.argv.slice(2)
 
-console.log("OHAI", process.cwd())
 args.forEach(function (map) {
   const root = process.cwd()
   const data = map.split(':')
@@ -18,7 +17,11 @@ args.forEach(function (map) {
 
   // Make sure that we create the link internally to the
   // module being installed
-  fs.mkdirSync(rootNodeModules)
+  try {
+    fs.accessSync(rootNodeModules)
+  } catch (error) {
+    fs.mkdirSync(rootNodeModules)
+  }
 
   function link() {
     fs.symlinkSync(source, destination, 'junction')
