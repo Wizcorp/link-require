@@ -7,12 +7,18 @@
 const fs = require('fs')
 const path = require('path')
 const args = process.argv.slice(2)
+const root = process.cwd()
 
 args.forEach(function (map) {
-  const root = process.cwd()
   const data = map.split(':')
-  const source = path.resolve(root, data[0])
+
+  if (data.length !== 2) {
+    throw new Error('Argument must be "<string>:<string>"')
+  }
+
   const rootNodeModules = path.resolve(root, 'node_modules')
+  const absSource = path.resolve(root, data[0])
+  const relSource = path.relative(rootNodeModules, absSource)
   const destination = path.join(rootNodeModules, data[1])
 
   // Make sure that we create the link internally to the
@@ -24,7 +30,7 @@ args.forEach(function (map) {
   }
 
   function link() {
-    fs.symlinkSync(source, destination, 'junction')
+    fs.symlinkSync(relSource, destination, 'junction')
   }
 
   try {
